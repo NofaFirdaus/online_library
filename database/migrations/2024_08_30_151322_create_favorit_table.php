@@ -21,6 +21,8 @@ return new class extends Migration
                 table: 'buku',
                 indexName: 'buku_id'
             );
+            // $table->primary(['buku_id', 'user_id']);
+
             $table->timestamps();
         });
     }

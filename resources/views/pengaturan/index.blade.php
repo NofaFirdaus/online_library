@@ -51,13 +51,13 @@
                         {{ $user->email }}
                     </p>
                 </div>
-                <div>
+                {{-- <div>
                     <p class="font-medium mb-2 text-slate-950 dark:text-slate-50 ">Country : </p>
                     <p
                         class="dark:bg-slate-900 bg-slate-300 w-84 text-center py-2 text-slate-950 dark:text-slate-50 text-lg font-semibold rounded-md">
 
                     </p>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>

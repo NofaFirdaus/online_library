@@ -12,13 +12,12 @@ class buku extends Model
 {
     use HasFactory;
     protected $table = 'buku';
-    protected $with = ['author'];
+    protected $with = ['author','genres'];
 
 
     // protected $guarded = ['id'];
     protected $fillable = [
         'title',
-        'genre',
         'deskripsi',
         'author_id',
         'sampul_buku',
@@ -36,14 +35,21 @@ class buku extends Model
     {
         return $this->belongsToMany(User::class, 'favorit', 'buku_id', 'user_id')->withTimestamps();
     }
+public function genres()
+{
+    return $this->belongsToMany(Genres::class,'buku_genres');
+}
 
     public function scopeFilter(Builder $query, array $filters): void
     {
         $query->when($filters['search'] ?? false, function (Builder $query, $search) {
             $query->where('title', 'like', '%' . $search . '%');
         });
+
         $query->when($filters['genre'] ?? false, function (Builder $query, $genre) {
-            $query->where('genre', $genre);
+            $query->whereHas('genres', function (Builder $q) use ($genre) {
+                $q->where('name', $genre);
+            });
         });
     }
 

@@ -22,29 +22,46 @@ class PageController extends Controller
             ],
             'books'=>Buku::filter(request(['search']))->latest()->paginate(5)->withQueryString(),
             'favorit'=>$favorit,
-            'favoritBooks'=>$favoritBooks
+            'favoritBooks'=>$favoritBooks,
+            'pageName'=>'Dashboard'
             ]);
         }
-        public function kategori()
+        public function kategori(Request $request)
         {
+            // Ambil data favorit dan favoritBooks sesuai dengan kebutuhan
             $favorit = buku::where('author_id', Auth::id())->pluck('id')->toArray();
-
             $favoritBooks = Favorit::where('user_id', Auth::id())->pluck('buku_id')->toArray();
-            $filter = [
-                'search'=>request('search'),
-                'genre'=>request('genre')
+
+            // Ambil data filter dari request
+            $filters = [
+                'search' => $request->input('search'),
+                'genres' => $request->input('genre', [])
             ];
-            $books = Buku::filter(request($filter))
+            $request->session()->put('selected_genres', $filters['genres']);
+
+            // Query untuk filter dan pencarian
+            $books = Buku::query()
+                ->when($filters['search'], function ($query, $search) {
+                    return $query->where('title', 'like', '%' . $search . '%');
+                })
+                ->when($filters['genres'], function ($query, $genres) {
+                    return $query->whereHas('genres', function ($query) use ($genres) {
+                        $query->whereIn('name', $genres);
+                    });
+                })
                 ->latest()
                 ->paginate(5)
                 ->withQueryString();
+
             return view('pages.kategori', [
+                'pageName'=>'Kategori',
                 'addBukuFavorit' => '/addBukuFavorit',
                 'books' => $books,
                 'favorit' => $favorit,
                 'favoritBooks' => $favoritBooks
             ]);
         }
+
 
 
 
@@ -72,7 +89,8 @@ class PageController extends Controller
                 ],
                 'deleteBuku' => true,
                 'count'=>Buku::where('author_id', $user->id)->count(),
-                'books'=>Buku::where('author_id', $user->id)->filter(request(['search']))->latest()->paginate(5)->withQueryString()
+                'books'=>Buku::where('author_id', $user->id)->filter(request(['search']))->latest()->paginate(5)->withQueryString(),
+                'pageName'=>'Koleksi'
 
             ]);
         }

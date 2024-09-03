@@ -40,37 +40,36 @@
                     </div>
 
                     <div>
-
                         <p for="genre" class="  font-semibold text-slate-950 dark:text-slate-50">Genre :
                         </p>
                         <div class="flex my-[0.6rem]   flex-wrap gap-[12px] items-center ">
                             <div>
                                 <input @if ($genre['aksi'] ?? false) checked @endif hidden class="peer/aksi"
-                                    id="aksi" type="checkbox" name="genre[]" value="aksi">
+                                    id="aksi" type="checkbox" name="genre_id[]" value="1">
                                 <label
                                     class="select-none peer-checked/aksi:ring-sky-500 peer-checked/aksi:text-sky-500 peer-checked/aksi:ease-in ease-out transition ring-1  cursor-pointer  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="aksi">aksi</label>
                             </div>
 
                             <div>
-                                <input @if ($genre['fantasi'] ?? false) checked @endif hidden class="peer/fantasi" id="fantasi" type="checkbox" name="genre[]"
-                                    value="fantasi">
+                                <input @if ($genre['fantasi'] ?? false) checked @endif hidden class="peer/fantasi" id="fantasi" type="checkbox" name="genre_id[]"
+                                    value="2">
                                 <label
                                     class="select-none peer-checked/fantasi:ring-sky-500 peer-checked/fantasi:text-sky-500 peer-checked/fantasi:ease-in ease-out transition ring-1  cursor-pointer  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="fantasi">fantasi</label>
                             </div>
                             <div>
 
-                                <input @if ($genre['romantis'] ?? false) checked @endif hidden class="peer/romantis" id="romantis" type="checkbox" name="genre[]"
-                                    value="romantis">
+                                <input @if ($genre['romantis'] ?? false) checked @endif hidden class="peer/romantis" id="romantis" type="checkbox" name="genre_id[]"
+                                    value="3">
                                 <label
                                     class="select-none peer-checked/romantis:ring-sky-500 peer-checked/romantis:text-sky-500 peer-checked/romantis:ease-in ease-out transition ring-1  cursor-pointer  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="romantis">romantis</label>
                             </div>
                             <div>
 
-                                <input @if ($genre['komedi'] ?? false) checked @endif hidden class="peer/komedi" id="komedi" type="checkbox" name="genre[]"
-                                    value="komedi">
+                                <input @if ($genre['komedi'] ?? false) checked @endif hidden class="peer/komedi" id="komedi" type="checkbox" name="genre_id[]"
+                                    value="4">
                                 <label
                                     class="select-none peer-checked/komedi:ring-sky-500 peer-checked/komedi:text-sky-500 peer-checked/komedi:ease-in ease-out transition ring-1  cursor-pointer   ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="komedi">komedi</label>
@@ -78,8 +77,8 @@
                             <div>
 
 
-                                <input @if ($genre['drama'] ?? false) checked @endif hidden class="peer/drama" id="drama" type="checkbox" name="genre[]"
-                                    value="drama">
+                                <input @if ($genre['drama'] ?? false) checked @endif hidden class="peer/drama" id="drama" type="checkbox" name="genre_id[]"
+                                    value="5">
                                 <label
                                     class=" peer-checked/drama:ring-sky-500 peer-checked/drama:text-sky-500 peer-checked/drama:ease-in ease-out transition ring-1  cursor-pointer select-none  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="drama">drama</label>
@@ -87,8 +86,8 @@
                             <div>
 
 
-                                <input @if ($genre['horror'] ?? false) checked @endif hidden class="peer/horror" id="horror" type="checkbox" name="genre[]"
-                                    value="horror">
+                                <input @if ($genre['horror'] ?? false) checked @endif hidden class="peer/horror" id="horror" type="checkbox" name="genre_id[]"
+                                    value="6">
                                 <label
                                     class=" peer-checked/horror:ring-sky-500 peer-checked/horror:text-sky-500 peer-checked/horror:ease-in ease-out transition ring-1  cursor-pointer select-none  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="horror">horror</label>
@@ -96,8 +95,8 @@
                             <div>
 
 
-                                <input @if ($genre['misteri'] ?? false) checked @endif hidden class="peer/misteri" id="misteri" type="checkbox" name="genre[]"
-                                    value="misteri">
+                                <input @if ($genre['misteri'] ?? false) checked @endif hidden class="peer/misteri" id="misteri" type="checkbox" name="genre_id[]"
+                                    value="7">
                                 <label
                                     class=" peer-checked/misteri:ring-sky-500 peer-checked/misteri:text-sky-500 peer-checked/misteri:ease-in ease-out transition ring-1  cursor-pointer select-none  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="misteri">misteri</label>
@@ -106,7 +105,7 @@
 
 
                                 <input @if ($genre['slice of life'] ?? false) checked @endif hidden class="peer/slice-of-life" id="slice-of-life" type="checkbox"
-                                    name="genre[]" value="slice of life">
+                                    name="genre_id[]" value="8">
                                 <label
                                     class=" peer-checked/slice-of-life:ring-sky-500 peer-checked/slice-of-life:text-sky-500 peer-checked/slice-of-life:ease-in ease-out transition ring-1  cursor-pointer select-none  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="slice-of-life">slice of life</label>

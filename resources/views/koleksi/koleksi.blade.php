@@ -1,4 +1,4 @@
-<x-layout-main>
+<x-layout-main pageName='{{$pageName}}'>
     <x-layout-konten count="{{ $count }}">
         <x-slot:title>Koleksi</x-slot:title>
         <x-slot:paginate>{{ $books->links() }}</x-slot:paginate>
@@ -6,8 +6,9 @@
         <x-slot:linkText>{{ $link['text'] }}</x-slot:linkText>
         <x-slot:bukuCard>
 
+
             @forelse($books as $book)
-                <x-card-buku title="{{ $book->title }}" author="{{ $book->author->name }}" genre="{{ $book->genre }}"
+            <x-card-buku title="{{ $book->title }}" author="{{ $book->author->name }}" genre="{{$book->genres->pluck('name')->join(', ')}}"
                     createdAt="{{ $book->created_at->diffForHumans() }}" deskripsi="{{ $book->deskripsi }}">
                     <x-slot:iconDeleteBuku>{{ $deleteBuku }}</x-slot:iconDeleteBuku>
                     <x-slot:slug>{{ $book->slug }}</x-slot:id>

@@ -32,32 +32,32 @@
                         </p>
                         <div class="flex my-[0.6rem]   flex-wrap gap-[12px] items-center ">
                             <div>
-                                <input hidden class="peer/aksi" id="aksi" type="checkbox" name="genre[]"
-                                    value="aksi">
+                                <input hidden class="peer/aksi" id="aksi" type="checkbox" value="1" name=genre_id[]
+                                    >
                                 <label
                                     class="select-none peer-checked/aksi:ring-sky-500 peer-checked/aksi:text-sky-500 peer-checked/aksi:ease-in ease-out transition ring-1  cursor-pointer  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="aksi">aksi</label>
                             </div>
 
                             <div>
-                                <input hidden class="peer/fantasi" id="fantasi" type="checkbox" name="genre[]"
-                                    value="fantasi">
+                                <input hidden class="peer/fantasi" id="fantasi" type="checkbox" value="2" name=genre_id[]
+                                    >
                                 <label
                                     class="select-none peer-checked/fantasi:ring-sky-500 peer-checked/fantasi:text-sky-500 peer-checked/fantasi:ease-in ease-out transition ring-1  cursor-pointer  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="fantasi">fantasi</label>
                             </div>
                             <div>
 
-                                <input hidden class="peer/romantis" id="romantis" type="checkbox" name="genre[]"
-                                    value="romantis">
+                                <input hidden class="peer/romantis" id="romantis" type="checkbox" value="3" name=genre_id[]
+                                    >
                                 <label
                                     class="select-none peer-checked/romantis:ring-sky-500 peer-checked/romantis:text-sky-500 peer-checked/romantis:ease-in ease-out transition ring-1  cursor-pointer  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="romantis">romantis</label>
                             </div>
                             <div>
 
-                                <input hidden class="peer/komedi" id="komedi" type="checkbox" name="genre[]"
-                                    value="komedi">
+                                <input hidden class="peer/komedi" id="komedi" type="checkbox" value="4" name=genre_id[]
+                                    >
                                 <label
                                     class="select-none peer-checked/komedi:ring-sky-500 peer-checked/komedi:text-sky-500 peer-checked/komedi:ease-in ease-out transition ring-1  cursor-pointer   ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="komedi">komedi</label>
@@ -65,8 +65,8 @@
                             <div>
 
 
-                                <input hidden class="peer/drama" id="drama" type="checkbox" name="genre[]"
-                                    value="drama">
+                                <input hidden class="peer/drama" id="drama" type="checkbox" value="5" name=genre_id[]
+                                    >
                                 <label
                                     class=" peer-checked/drama:ring-sky-500 peer-checked/drama:text-sky-500 peer-checked/drama:ease-in ease-out transition ring-1  cursor-pointer select-none  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="drama">drama</label>
@@ -74,8 +74,8 @@
                             <div>
 
 
-                                <input hidden class="peer/horror" id="horror" type="checkbox" name="genre[]"
-                                    value="horror">
+                                <input hidden class="peer/horror" id="horror" type="checkbox" value="6" name=genre_id[]
+                                    >
                                 <label
                                     class=" peer-checked/horror:ring-sky-500 peer-checked/horror:text-sky-500 peer-checked/horror:ease-in ease-out transition ring-1  cursor-pointer select-none  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="horror">horror</label>
@@ -83,8 +83,8 @@
                             <div>
 
 
-                                <input hidden class="peer/misteri" id="misteri" type="checkbox" name="genre[]"
-                                    value="misteri">
+                                <input hidden class="peer/misteri" id="misteri" type="checkbox" value="7" name=genre_id[]
+                                    >
                                 <label
                                     class=" peer-checked/misteri:ring-sky-500 peer-checked/misteri:text-sky-500 peer-checked/misteri:ease-in ease-out transition ring-1  cursor-pointer select-none  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="misteri">misteri</label>
@@ -93,13 +93,13 @@
 
 
                                 <input hidden class="peer/slice-of-life" id="slice-of-life" type="checkbox"
-                                    name="genre[]" value="slice of life">
+                                    value="8" name=genre_id[] >
                                 <label
                                     class=" peer-checked/slice-of-life:ring-sky-500 peer-checked/slice-of-life:text-sky-500 peer-checked/slice-of-life:ease-in ease-out transition ring-1  cursor-pointer select-none  ring-sky-500/50 text-sm text-sky-500/75 px-4 py-2 rounded-md"
                                     for="slice-of-life">slice of life</label>
                             </div>
                         </div>
-                        @error('genre')
+                        @error('genres')
                         <div class=" ring-[1.5px] transition ease-in ring-red-600 mt-2 rounded-md px-4 py-2"><p class="text-red-600 text-xs">{{$message}}</p></div>
 
                         @enderror

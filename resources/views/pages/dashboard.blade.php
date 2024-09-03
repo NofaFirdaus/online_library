@@ -1,4 +1,4 @@
-<x-layout-main>
+<x-layout-main pageName="{{$pageName}}">
     <x-layout-konten title="Rekomendasi">
         <x-slot:paginate>{{ $books->links() }}</x-slot:paginate>
         <x-slot:linkRedirect>{{ $link['redirect'] }}</x-slot:linkRedirect>
@@ -6,7 +6,9 @@
         <x-slot:bukuCard>
             @forelse($books as $book)
                 <x-card-buku title="{{ $book->title }}" idBuku="{{ $book->id }}" author="{{ $book->author->name }}"
-                    genre="{{ $book->genre }}" createdAt="{{ $book->created_at->diffForHumans() }}"
+                    genre="{{
+                        $book->genres->pluck('name')->join(', ')
+                    }}" createdAt="{{ $book->created_at->diffForHumans() }}"
                     deskripsi="{{ $book->deskripsi }}">
                     @if (!in_array($book->id, $favorit))
                         @if (in_array($book->id, $favoritBooks))
