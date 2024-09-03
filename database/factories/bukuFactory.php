@@ -26,14 +26,14 @@ class bukuFactory extends Factory
                 'deskripsi' => $this->faker->paragraph,
                 'file_buku' => $this->faker->word . '.pdf',
                 'sampul_buku' => $this->faker->imageUrl(),
-                'author_id' => User::factory(),
+                // 'author_id' => User::factory(),
             ];
     }
-    public function withExistingGenres($count = 3)
+
+    public function withExistingGenres()
     {
-        return $this->afterCreating(function (Buku $buku) use ($count) {
-            // Mengambil genre yang sudah ada di database
-            $genres = Genres::inRandomOrder()->take($count)->pluck('id');
+        return $this->afterCreating(function (Buku $buku) {
+            $genres = Genres::inRandomOrder()->take(rand(1, 8))->pluck('id');
             $buku->genres()->attach($genres);
         });
     }

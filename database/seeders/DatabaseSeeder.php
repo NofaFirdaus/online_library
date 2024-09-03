@@ -29,18 +29,15 @@ class DatabaseSeeder extends Seeder
         // Membuat genre jika belum ada
 
         // Membuat buku dan mengaitkannya dengan pengguna dan genre
-        $users = User::factory(1000)->create();
-
-        // Membuat buku dengan mengaitkannya dengan pengguna dan genre yang sudah ada
+        $users = User::factory(50)->create();
+        // $users = User::all();
+        // dd($users);
+        // Buat buku dengan genre yang sudah ada dan kaitkan dengan pengguna yang ada
         Buku::factory(10000)
-            ->withExistingGenres() // Menyambungkan dengan genre yang sudah ada
-            ->create()
-            ->each(function ($buku) use ($users) {
-                // Mengaitkan buku dengan pengguna secara acak
-                $buku->update([
-                    'author_id' => $users->random()->id,
-                ]);
-            });
+        ->withExistingGenres()
+        ->create([
+            'author_id' => $users->random()->id,
+        ]);
         }
     }
 
