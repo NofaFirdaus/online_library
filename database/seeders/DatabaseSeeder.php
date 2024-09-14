@@ -29,11 +29,11 @@ class DatabaseSeeder extends Seeder
         // Membuat genre jika belum ada
 
         // Membuat buku dan mengaitkannya dengan pengguna dan genre
-        $users = User::factory(50)->create();
+        $users = User::factory(10)->create();
         // $users = User::all();
         // dd($users);
         // Buat buku dengan genre yang sudah ada dan kaitkan dengan pengguna yang ada
-        Buku::factory(10000)
+        Buku::factory(10)
         ->withExistingGenres()
         ->create([
             'author_id' => $users->random()->id,
